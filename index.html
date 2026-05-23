@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СРС: Инфляция — значение и типы</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #666;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 25px;
+        }
+
+        .menu-btn {
+            padding: 12px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        .menu-btn:hover {
+            background: #f1f1f1;
+        }
+
+        .menu-btn.active {
+            color: #007bff;
+            border-bottom-color: #007bff;
+            font-weight: bold;
+        }
+
+        .content-section {
+            display: none;
+            animation: fade 0.3s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .calc-group {
+            margin-bottom: 15px;
+        }
+
+        .calc-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .calc-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-submit:hover {
+            background: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background: #e7f4e4;
+            border: 1px solid #b8d8b1;
+            display: none;
+        }
+
+        .author {
+            margin-top: 40px;
+            text-align: right;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .menu {
+                flex-direction: column;
+            }
+
+            .menu-btn {
+                width: 100%;
+                text-align: left;
+            }
+        }
+        @media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 18px;
+        border-radius: 0;
+    }
+
+    h1 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p,
+    li {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 5px;
+        border-bottom: none;
+    }
+
+    .menu-btn {
+        width: 100%;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .menu-btn.active {
+        border-color: #007bff;
+        background: #eef5ff;
+    }
+
+    .calc-group input {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 14px;
+        font-size: 17px;
+    }
+
+    .result {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .author {
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>СРС: Инфляция — значение и типы</h1>
+    <div class="subtitle">
+        Самостоятельная работа студента по экономике
+    </div>
+
+    <div class="menu">
+        <button class="menu-btn active" onclick="changeTab(event, 'intro')">Введение</button>
+        <button class="menu-btn" onclick="changeTab(event, 'meaning')">Значение</button>
+        <button class="menu-btn" onclick="changeTab(event, 'types')">Типы</button>
+        <button class="menu-btn" onclick="changeTab(event, 'effects')">Последствия</button>
+        <button class="menu-btn" onclick="changeTab(event, 'calc')">Калькулятор</button>
+        <button class="menu-btn" onclick="changeTab(event, 'conclusion')">Заключение</button>
+    </div>
+
+    <!-- Введение -->
+    <div id="intro" class="content-section active">
+        <h2>Введение</h2>
+
+        <p>
+            Инфляция является одной из важнейших экономических проблем современного мира.
+            Она оказывает влияние на жизнь каждого человека, так как связана с ростом цен,
+            изменением стоимости товаров и услуг, а также снижением покупательной способности денег.
+        </p>
+
+        <p>
+            В условиях рыночной экономики инфляция присутствует практически во всех странах.
+            Незначительная инфляция считается нормальным явлением, однако высокий уровень
+            инфляции способен вызвать серьёзные экономические проблемы.
+        </p>
+
+        <p>
+            Цель данной СРС — изучить значение инфляции, её основные типы и последствия
+            для экономики государства и населения.
+        </p>
+    </div>
+
+    <!-- Значение -->
+    <div id="meaning" class="content-section">
+        <h2>Понятие и значение инфляции</h2>
+
+        <p>
+            <b>Инфляция</b> — это устойчивый рост общего уровня цен на товары и услуги,
+            который сопровождается снижением покупательной способности денег.
+        </p>
+
+        <p>
+            Простыми словами, при инфляции на одну и ту же сумму денег со временем
+            можно купить меньше товаров, чем раньше.
+        </p>
+
+        <p>
+            Основными причинами инфляции являются:
+        </p>
+
+        <ul>
+            <li>чрезмерный выпуск денег государством;</li>
+            <li>рост спроса на товары;</li>
+            <li>увеличение затрат на производство;</li>
+            <li>экономические кризисы;</li>
+            <li>рост цен на сырьё и топливо.</li>
+        </ul>
+
+        <p>
+            Инфляция оказывает влияние на уровень жизни населения,
+            заработную плату, сбережения граждан и развитие экономики страны.
+        </p>
+    </div>
+
+    <!-- Типы -->
+    <div id="types" class="content-section">
+        <h2>Типы инфляции</h2>
+
+        <p><b>1. Инфляция спроса</b></p>
+
+        <p>
+            Возникает тогда, когда спрос на товары и услуги превышает предложение.
+            У населения появляется больше денег, но количество товаров остаётся ограниченным,
+            поэтому цены начинают расти.
+        </p>
+
+        <p><b>2. Инфляция издержек</b></p>
+
+        <p>
+            Появляется при увеличении затрат на производство товаров.
+            Например, если дорожает сырьё, электроэнергия или транспорт,
+            производители повышают цены на продукцию.
+        </p>
+
+        <p><b>3. Умеренная инфляция</b></p>
+
+        <p>
+            Характеризуется медленным ростом цен. Обычно она не представляет
+            серьёзной угрозы для экономики.
+        </p>
+
+        <p><b>4. Галопирующая инфляция</b></p>
+
+        <p>
+            Отличается быстрым ростом цен и вызывает экономическую нестабильность.
+        </p>
+
+        <p><b>5. Гиперинфляция</b></p>
+
+        <p>
+            Самая опасная форма инфляции, при которой цены растут чрезвычайно быстро,
+            а деньги практически теряют свою ценность.
+        </p>
+    </div>
+
+    <!-- Последствия -->
+    <div id="effects" class="content-section">
+        <h2>Последствия инфляции</h2>
+
+        <ul>
+            <li>снижение уровня жизни населения;</li>
+            <li>обесценивание денежных накоплений;</li>
+            <li>рост цен на товары и услуги;</li>
+            <li>снижение доверия к национальной валюте;</li>
+            <li>экономическая нестабильность.</li>
+        </ul>
+
+        <p>
+            Несмотря на отрицательные стороны, небольшая инфляция может стимулировать
+            развитие экономики и производство товаров.
+        </p>
+    </div>
+
+    <!-- Калькулятор -->
+    <div id="calc" class="content-section">
+        <h2>Калькулятор инфляции</h2>
+
+        <p>
+            Введите сумму денег и процент инфляции, чтобы узнать,
+            как изменится покупательная способность денег через год.
+        </p>
+
+        <div class="calc-group">
+            <label>Сумма денег:</label>
+            <input type="number" id="money-input" value="10000">
+        </div>
+
+        <div class="calc-group">
+            <label>Инфляция (%):</label>
+            <input type="number" id="inflation-input" value="10">
+        </div>
+
+        <button class="btn-submit" onclick="calculate()">
+            Рассчитать
+        </button>
+
+        <div id="calc-result" class="result"></div>
+    </div>
+
+    <!-- Заключение -->
+    <div id="conclusion" class="content-section">
+        <h2>Заключение</h2>
+
+        <p>
+            Таким образом, инфляция представляет собой важный экономический процесс,
+            влияющий на государство, предприятия и население.
+        </p>
+
+        <p>
+            Она приводит к росту цен и снижению покупательной способности денег.
+            Существуют различные типы инфляции, которые отличаются причинами возникновения
+            и скоростью роста цен.
+        </p>
+
+        <p>
+            Для поддержания стабильности экономики государство должно контролировать уровень
+            инфляции и проводить эффективную финансовую политику.
+        </p>
+
+        <div class="author">
+            Выполнила: студентка Аселя Мамасалиева
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+function changeTab(event, tabId) {
+
+    let sections = document.querySelectorAll('.content-section');
+
+    sections.forEach(function(section) {
+        section.classList.remove('active');
+    });
+
+    let buttons = document.querySelectorAll('.menu-btn');
+
+    buttons.forEach(function(button) {
+        button.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+
+    event.currentTarget.classList.add('active');
+}
+
+function calculate() {
+
+    let money = parseFloat(document.getElementById('money-input').value);
+
+    let inflation = parseFloat(document.getElementById('inflation-input').value);
+
+    let realValue = money / (1 + inflation / 100);
+
+    let loss = money - realValue;
+
+    let resultBox = document.getElementById('calc-result');
+
+    resultBox.innerHTML =
+        "Через 1 год покупательная способность ваших денег составит примерно <b>" +
+        realValue.toFixed(2) +
+        " руб.</b><br><br>Потеря из-за инфляции составит около <b>" +
+        loss.toFixed(2) +
+        " руб.</b>";
+
+    resultBox.style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
